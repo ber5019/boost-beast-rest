@@ -111,19 +111,23 @@ public:
             std::cerr << "Listen error: " << ec.message() << std::endl;
             return;
         }
+    }
 
+    void run()
+    {
         do_accept();
     }
 
 private:
     void do_accept()
     {
-        acceptor_.async_accept(net::make_strand(ioc_), [this](beast::error_code ec, tcp::socket socket)
+        auto self(shared_from_this());
+        acceptor_.async_accept(net::make_strand(ioc_), [self](beast::error_code ec, tcp::socket socket)
                                {
             if (!ec) {
                 std::make_shared<Session>(std::move(socket))->run();
             }
-            do_accept(); });
+            self->do_accept(); });
     }
 };
 
