@@ -1,6 +1,7 @@
 # boost-beast-rest
 #### How to run the Rest server:
 ```
+Ensure your boost libraries are linked correctly(Beast and Asio)
 From the root directory run the following commands in order
 ```
 1. mkdir build
