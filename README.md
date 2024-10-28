@@ -12,3 +12,6 @@ From the root directory run the following commands in order
 In a separate terminal run the command
 ```
 6. curl http://localhost:8080  
+
+## Original article written by Alexander Obregon:
+https://medium.com/@AlexanderObregon/building-restful-apis-with-c-4c8ac63fe8a7
